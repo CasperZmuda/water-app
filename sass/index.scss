@@ -1,0 +1,108 @@
+$mainColor: rgb(228, 236, 244);
+$darkMainColor: rgb(200, 208, 215);
+$blue: rgb(111, 171, 231);
+$darkBlue: rgb(78, 123, 169);
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	width: 100%;
+	background-color: $mainColor;
+	font-family: 'Roboto', sans-serif;
+}
+
+.heading {
+	position: absolute;
+	top: 0;
+	margin: 2rem;
+	font-size: 6rem;
+	color: $darkBlue;
+}
+
+.progress {
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	background: conic-gradient($darkBlue 0%, $darkMainColor 0%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	user-select: none;
+
+	&__percentage,
+	&__consumed-amount {
+		z-index: 1;
+	}
+
+	&__percentage {
+		font-size: 6rem;
+		font-weight: 700;
+		color: $darkBlue;
+	}
+
+	&__consumed-amount {
+		font-size: 4rem;
+		color: $blue;
+	}
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 260px;
+		width: 260px;
+		background-color: $mainColor;
+		border-radius: 50%;
+	}
+}
+
+.stats {
+	margin-top: 2rem;
+}
+
+.daily-requirement,
+.remaining {
+	line-height: 150%;
+	font-size: 2rem;
+
+	&__stat {
+		font-weight: 700;
+		color: $darkBlue;
+	}
+}
+
+.drinks {
+	position: absolute;
+	bottom: 0;
+}
+
+button {
+	bottom: 0;
+	margin: 0 1rem 5rem;
+	cursor: pointer;
+	padding: 1em 2em;
+	font-size: 1.5rem;
+	border: 2px solid $darkBlue;
+	background-color: transparent;
+	border-radius: 10px;
+}
+
+@media (min-width: 500px) {
+	button {
+		font-size: 2rem;
+		margin: 0 2rem 10rem;
+	}
+}
