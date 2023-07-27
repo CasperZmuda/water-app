@@ -9,13 +9,7 @@ const consumedAmount = document.querySelector('.progress__consumed-amount');
 const dailyRequirement = document.querySelector('.daily-requirement__stat');
 const remaining = document.querySelector('.remaining__stat');
 
-const addButtons = document.querySelectorAll('button');
-
-addButtons.forEach(button =>
-	button.addEventListener('click', () =>
-		addToProgress(parseInt(button.dataset.value))
-	)
-);
+const addButtons = document.querySelectorAll('.drink');
 
 const DAILY = 2000;
 let amount = 0;
@@ -49,3 +43,14 @@ const remainingAmount = () => {
 		remaining.textContent = `0 ml`;
 	}
 };
+
+addButtons.forEach(button =>
+	button.addEventListener(
+		'click',
+		() => addToProgress(Number(button.dataset.value)),
+		(button.innerHTML = `
+    <p>${button.dataset.name}</p>
+    <p>${button.dataset.value} ml</p>
+    `)
+	)
+);

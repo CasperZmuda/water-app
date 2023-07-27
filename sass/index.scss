@@ -1,4 +1,4 @@
-$mainColor: rgb(228, 236, 244);
+$mainColor: rgb(35, 35, 38);
 $darkMainColor: rgb(200, 208, 215);
 $blue: rgb(111, 171, 231);
 $darkBlue: rgb(78, 123, 169);
@@ -14,22 +14,69 @@ html {
 }
 
 body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	height: 100vh;
 	width: 100%;
 	background-color: $mainColor;
 	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	overflow-x: none;
 }
 
-.heading {
-	position: absolute;
-	top: 0;
-	margin: 2rem;
-	font-size: 6rem;
-	color: $darkBlue;
+header {
+	.heading {
+		margin: 2rem;
+		font-size: 4rem;
+		color: $blue;
+		text-align: center;
+	}
+}
+
+footer {
+	padding: 2em;
+
+	p {
+		font-size: 2rem;
+		color: $darkMainColor;
+
+		&:first-child {
+			margin-bottom: 1rem;
+			font-weight: bold;
+		}
+	}
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 1200px) {
+		flex-direction: row;
+	}
+
+	.daily-activity,
+	.statistics,
+	.weekly-activity {
+		width: 100%;
+	}
+}
+
+.daily-activity {
+	background-color: red;
+}
+
+.statistics {
+	// background-color: lime;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	order: -1;
+
+	@media (min-width: 1200px) {
+		order: 0;
+	}
+}
+
+.weekly-activity {
+	background-color: blue;
 }
 
 .progress {
@@ -42,6 +89,7 @@ body {
 	align-items: center;
 	flex-direction: column;
 	user-select: none;
+	margin-top: 5rem;
 
 	&__percentage,
 	&__consumed-amount {
@@ -51,19 +99,19 @@ body {
 	&__percentage {
 		font-size: 6rem;
 		font-weight: 700;
-		color: $darkBlue;
+		color: $blue;
 	}
 
 	&__consumed-amount {
 		font-size: 4rem;
-		color: $blue;
+		color: $darkBlue;
 	}
 
 	&::before {
 		content: '';
 		position: absolute;
-		height: 260px;
-		width: 260px;
+		height: 250px;
+		width: 250px;
 		background-color: $mainColor;
 		border-radius: 50%;
 	}
@@ -77,32 +125,48 @@ body {
 .remaining {
 	line-height: 150%;
 	font-size: 2rem;
+	color: $darkMainColor;
 
 	&__stat {
 		font-weight: 700;
-		color: $darkBlue;
+		color: $blue;
 	}
 }
 
+// button {
+// 	bottom: 0;
+// 	margin: 0 1rem 5rem;
+// 	cursor: pointer;
+// 	padding: 1em 2em;
+// 	font-size: 1.5rem;
+// 	border: 2px solid $darkBlue;
+// 	background-color: transparent;
+// 	border-radius: 10px;
+// }
+
+// @media (min-width: 500px) {
+// 	button {
+// 		font-size: 2rem;
+// 		margin: 0 2rem 10rem;
+// 	}
+// }
+
 .drinks {
-	position: absolute;
-	bottom: 0;
-}
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(2, 1fr);
+	margin-top: 2rem;
+	background-color: lime;
+	@media (min-width: 1200px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
 
-button {
-	bottom: 0;
-	margin: 0 1rem 5rem;
-	cursor: pointer;
-	padding: 1em 2em;
-	font-size: 1.5rem;
-	border: 2px solid $darkBlue;
-	background-color: transparent;
-	border-radius: 10px;
-}
-
-@media (min-width: 500px) {
-	button {
+	.drink {
+		display: inline-block;
 		font-size: 2rem;
-		margin: 0 2rem 10rem;
+		cursor: pointer;
+		padding: 1em;
+		background-color: yellow;
+		user-select: none;
 	}
 }

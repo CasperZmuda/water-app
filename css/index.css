@@ -10,12 +10,63 @@ html {
 }
 
 body {
+  width: 100%;
+  background-color: rgb(35, 35, 38);
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  overflow-x: none;
+}
+
+header .heading {
+  margin: 2rem;
+  font-size: 4rem;
+  color: rgb(111, 171, 231);
+  text-align: center;
+}
+
+footer {
+  padding: 2em;
+}
+footer p {
+  font-size: 2rem;
+  color: rgb(200, 208, 215);
+}
+footer p:first-child {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.app {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .app {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+.app .daily-activity,
+.app .statistics,
+.app .weekly-activity {
+  width: 100%;
+}
+
+.daily-activity {
+  background-color: red;
+}
+
+.statistics {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -23,18 +74,20 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  background-color: rgb(228, 236, 244);
-  font-family: "Roboto", sans-serif;
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+@media (min-width: 1200px) {
+  .statistics {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
 }
 
-.heading {
-  position: absolute;
-  top: 0;
-  margin: 2rem;
-  font-size: 6rem;
-  color: rgb(78, 123, 169);
+.weekly-activity {
+  background-color: blue;
 }
 
 .progress {
@@ -59,6 +112,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  margin-top: 5rem;
 }
 .progress__percentage, .progress__consumed-amount {
   z-index: 1;
@@ -66,18 +120,18 @@ body {
 .progress__percentage {
   font-size: 6rem;
   font-weight: 700;
-  color: rgb(78, 123, 169);
+  color: rgb(111, 171, 231);
 }
 .progress__consumed-amount {
   font-size: 4rem;
-  color: rgb(111, 171, 231);
+  color: rgb(78, 123, 169);
 }
 .progress::before {
   content: "";
   position: absolute;
-  height: 260px;
-  width: 260px;
-  background-color: rgb(228, 236, 244);
+  height: 250px;
+  width: 250px;
+  background-color: rgb(35, 35, 38);
   border-radius: 50%;
 }
 
@@ -89,32 +143,34 @@ body {
 .remaining {
   line-height: 150%;
   font-size: 2rem;
+  color: rgb(200, 208, 215);
 }
 .daily-requirement__stat,
 .remaining__stat {
   font-weight: 700;
-  color: rgb(78, 123, 169);
+  color: rgb(111, 171, 231);
 }
 
 .drinks {
-  position: absolute;
-  bottom: 0;
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2rem;
+  background-color: lime;
 }
-
-button {
-  bottom: 0;
-  margin: 0 1rem 5rem;
-  cursor: pointer;
-  padding: 1em 2em;
-  font-size: 1.5rem;
-  border: 2px solid rgb(78, 123, 169);
-  background-color: transparent;
-  border-radius: 10px;
-}
-
-@media (min-width: 500px) {
-  button {
-    font-size: 2rem;
-    margin: 0 2rem 10rem;
+@media (min-width: 1200px) {
+  .drinks {
+    grid-template-columns: repeat(3, 1fr);
   }
+}
+.drinks .drink {
+  display: inline-block;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 1em;
+  background-color: yellow;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }/*# sourceMappingURL=index.css.map */
