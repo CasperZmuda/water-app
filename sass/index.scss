@@ -151,22 +151,33 @@ footer {
 // 	}
 // }
 
+a {
+	color: $blue;
+	text-decoration: none;
+}
+
 .drinks {
 	display: grid;
-	grid-gap: 1em;
+	grid-gap: 2em;
 	grid-template-columns: repeat(2, 1fr);
 	margin-top: 2rem;
-	background-color: lime;
 	@media (min-width: 1200px) {
 		grid-template-columns: repeat(3, 1fr);
 	}
 
-	.drink {
+	&__item {
 		display: inline-block;
+		position: relative;
 		font-size: 2rem;
 		cursor: pointer;
-		padding: 1em;
+		padding: 0.5em;
 		background-color: yellow;
 		user-select: none;
+		text-align: center;
+		border-radius: 5px;
+
+		p:last-of-type {
+			font-weight: bold;
+		}
 	}
 }
